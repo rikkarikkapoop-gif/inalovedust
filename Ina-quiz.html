@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Who is Ina?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{font-family:'Press Start 2P',cursive,sans-serif;background:url('https://i.imgur.com/8fKQZ0k.png') repeat;margin:0;text-align:center;color:#fff;}
+    h1{background-color:#3c6e47;padding:15px;border:4px solid #2a4d32;}
+    .quiz,#finalQuestion{background-color:rgba(60,110,71,0.9);border:4px solid #2a4d32;margin:20px;padding:20px;border-radius:8px;}
+    .question{margin:20px 0;text-align:left;}
+    label{display:block;margin:5px 0;}
+    button{padding:10px 20px;font-size:1em;background-color:#4caf50;border:3px solid #2a4d32;color:#fff;cursor:pointer;}
+    button:hover{background-color:#66bb6a;}
+    #mainContent,#sadContent,#finalQuestion,#finalSuccess{display:none;margin:20px;padding:20px;border:4px solid #2a4d32;background-color:rgba(60,110,71,0.95);border-radius:8px;}
+    .celebration img,.sad img{max-width:200px;margin:10px;}
+    .love-message{margin-top:20px;font-size:0.8em;line-height:1.5em;text-align:left;background-color:#fff;color:#000;padding:15px;border:4px dashed #2a4d32;border-radius:8px;}
+    .pixel-glow{animation:glow 2s infinite alternate;}
+    .pixel-heart{animation:pulse 1.5s infinite;}
+    .pixel-border{border:4px solid #2a4d32;animation:borderGlow 3s infinite alternate;}
+    @keyframes glow{from{text-shadow:0 0 5px #4caf50;}to{text-shadow:0 0 20px #66ff66;}}
+    @keyframes pulse{0%{transform:scale(1);color:#ff4d4d;}50%{transform:scale(1.2);color:#ff9999;}100%{transform:scale(1);color:#ff4d4d;}}
+    @keyframes borderGlow{from{box-shadow:0 0 5px #4caf50;}to{box-shadow:0 0 20px #66ff66;}}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>💚 Who is Ina? 💚</h1>
+  <div id="quiz" class="quiz">
+    <div class="question"><p>1. What's Ina's favorite color?</p>
+      <label><input type="radio" name="q1" value="a"> a. green</label>
+      <label><input type="radio" name="q1" value="b"> b. yellow</label>
+      <label><input type="radio" name="q1" value="c"> c. purple</label>
+    </div>
+    <div class="question"><p>2. How many cats does Ina have?</p>
+      <label><input type="radio" name="q2" value="a"> a. 8</label>
+      <label><input type="radio" name="q2" value="b"> b. 5</label>
+      <label><input type="radio" name="q2" value="c"> c. 2</label>
+    </div>
+    <div class="question"><p>3. Ano favorite number niya sa electric fan?</p>
+      <label><input type="radio" name="q3" value="a"> a. 1</label>
+      <label><input type="radio" name="q3" value="b"> b. 2</label>
+      <label><input type="radio" name="q3" value="c"> c. 3</label>
+      <label><input type="radio" name="q3" value="d"> d. none</label>
+    </div>
+    <div class="question"><p>4. When is her birthday?</p>
+      <label><input type="radio" name="q4" value="a"> a. June 13 2007</label>
+      <label><input type="radio" name="q4" value="b"> b. June 14 2007</label>
+      <label><input type="radio" name="q4" value="c"> c. June 15 2007</label>
+    </div>
+    <div class="question"><p>5. Who she loves the most?</p>
+      <label><input type="radio" name="q5" value="a"> a. mio</label>
+      <label><input type="radio" name="q5" value="b"> b. femboy</label>
+      <label><input type="radio" name="q5" value="c"> c. ako</label>
+      <label><input type="radio" name="q5" value="d"> d. dust</label>
+    </div>
+    <button onclick="checkQuiz()">Submit Answers</button>
+  </div>
+
+  <div id="mainContent">
+    <h2>🌿 Happy 2 Monthsary 🌿</h2>
+    <div class="celebration">
+      <p>I love you baby! mwa! (≧▽≦)</p>
+      <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Fireworks">
+      <img src="https://i.imgur.com/0Z8FZqF.png" alt="Happy Dudu & Bubu">
+    </div>
+    <div class="love-message">
+      <p>I love you baby, you're the greatest person that comes into my life... (your full message here)</p>
+    </div>
+    <div id="finalQuestion">
+      <h3>Wanna stay with me baby?</h3>
+      <input type="text" id="finalAnswer" placeholder="Type your answer">
+      <button onclick="checkFinal()">Submit</button>
+    </div>
+  </div>
+
+  <div id="finalSuccess">
+    <h2 class="pixel-glow">💚 Forever Together 💚</h2>
+    <p class="pixel-heart">Yay! You said YES! I love you baby! (≧▽≦)</p>
+    <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Fireworks">
+    <img src="https://i.imgur.com/0Z8FZqF.png" alt="Happy Dudu & Bubu">
+    <div class="love-message pixel-border">
+      <p>(Your full heartfelt message again if you want it repeated here)</p>
+    </div>
+  </div>
+
+  <div id="sadContent">
+    <p>you don't love me ah :<</p>
+    <div class="sad">
+      <img src="https://i.imgur.com/3Z8FZqF.png" alt="Sad Dudu & Bubu">
+    </div>
+  </div>
+
+  <audio id="successSound" src="https://www.myinstants.com/media/sounds/minecraft-level-up.mp3" preload="auto"></audio>
+  <audio id="bgMusic" src="https://vgmsite.com/soundtracks/minecraft-volume-alpha/1.mp3" preload="auto" loop></audio>
+
+  <script>
+    function checkQuiz(){
+      const answers={q1:"a",q2:"b",q3:"a",q4:"b",q5:"d"};
+      let correct=true;
+      for(let q in answers){
+        const selected=document.querySelector(`input[name="${q}"]:checked`);
+        if(!selected||selected.value!==answers[q]){correct=false;break;}
+      }
+      document.getElementById("quiz").style.display="none";
+      if(correct){
+        document.getElementById("mainContent").style.display="block";
+        document.getElementById("finalQuestion").style.display="block";
+      }else{
+        document.getElementById("sadContent").style.display="block";
+      }
+    }
+    function checkFinal(){
+      const ans=document.getElementById("finalAnswer").value.trim().toLowerCase();
+      if(ans==="yes"){
+        document.getElementById("mainContent").style.display="none";
+        document.getElementById("finalSuccess").style.display="block";
+        document.getElementById("successSound").play();
+        document.getElementById("bgMusic").play();
+      }else{
+        document.getElementById
